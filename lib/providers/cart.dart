@@ -62,4 +62,8 @@ void addItem(
     }
     notifyListeners();
 }
+void removeItem(String productId) {
+    _items.remove(productId);
+    notifyListeners();
+  }
 }
