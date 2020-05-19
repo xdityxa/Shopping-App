@@ -62,8 +62,7 @@ class _OrderItemState extends State<OrderItem> {
                           )
                         ],
                       ),
-                    )
-                    .toList(),
+                    ).toList(),
               ),
             )
         ],
