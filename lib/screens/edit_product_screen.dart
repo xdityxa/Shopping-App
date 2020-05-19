@@ -112,10 +112,13 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 },
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please provide a price';
+                    return 'Please enter a price';
                   }
-                  if (double.parse(value) <= 0) {
-                    return 'Enter valid Amount';
+                  if (double.tryParse(value) == null) {
+                    return 'Enter a valid Amount';
+                  }
+                  if(double.parse(value) <= 0){
+                    return 'Enter an amount greater than 0';
                   }
 
                   return null;
