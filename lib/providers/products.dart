@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 
 import './product.dart';
 
-class Products with ChangeNotifier{
+class Products with ChangeNotifier {
   List<Product> _items = [
-    
     Product(
       id: 'p1',
       title: 'Red Shirt',
@@ -40,18 +39,18 @@ class Products with ChangeNotifier{
   ];
   // var _showFavoritesOnly = false;
 
-  List<Product> get items{
+  List<Product> get items {
     // if(_showFavoritesOnly){
     //   return _items.where((prodItem) => prodItem.isFavorite).toList();
     //   }
-      return [..._items];
+    return [..._items];
   }
 
-  List<Product> get favoriteItems{
-    return _items.where((prodItem) => prodItem.isFavorite).toList(); 
+  List<Product> get favoriteItems {
+    return _items.where((prodItem) => prodItem.isFavorite).toList();
   }
 
-  Product findById(String id){
+  Product findById(String id) {
     return _items.firstWhere((prod) => prod.id == id);
   }
 
@@ -65,9 +64,30 @@ class Products with ChangeNotifier{
   //   notifyListeners();
   // }
 
-
-  void addProduct(){
+  void addProduct(Product product) {
+    final newProduct = Product(
+      id: null,
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      imageUrl: product.imageUrl,
+    );
     notifyListeners();
   }
 
+  void updateProduct(String id, Product newProduct){
+    final prodIndex = _items.indexWhere((prod) => prod.id == id);
+    if (prodIndex >= 0) {
+      _items[prodIndex] = newProduct;
+      notifyListeners();
+    }
+    else{
+      print('...');
+    }
+  }
+
+  void deleteProduct(String id){
+    _items.removeWhere((prod) => prod.id == id);
+    notifyListeners();
+  }
 }
