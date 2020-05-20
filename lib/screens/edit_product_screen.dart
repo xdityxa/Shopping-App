@@ -98,12 +98,13 @@ class _EditProductScreenState extends State<EditProductScreen> {
       setState(() {
         _isLoading = false;
       });
+      Navigator.of(context).pop();
     } else {
       Provider.of<Products>(context, listen: false)
           .addProduct(_editedProduct)
           .catchError((error) {
-        showDialog(
-            context: null,
+        return showDialog(
+            context: context,
             builder: (ctx) => AlertDialog(
                   title: Text('An error occured!'),
                   content: Text('Something went weong'),
@@ -123,6 +124,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
         Navigator.of(context).pop();
       });
     }
+    // Navigator.of(context).pop();
   }
 
   @override
