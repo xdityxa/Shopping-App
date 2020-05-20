@@ -110,7 +110,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   actions: <Widget>[
                     FlatButton(
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        Navigator.of(ctx).pop();
                       },
                       child: Text('Okay'),
                     ),
