@@ -21,6 +21,12 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   var _showOnlyFavorites = false;
 
   @override
+  void initState() { 
+    super.initState();
+    // http.get();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
