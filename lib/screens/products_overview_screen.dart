@@ -6,6 +6,7 @@ import 'package:shop_app/widgets/app_drawer.dart';
 import '../widgets/products_grid.dart';
 import '../widgets/badge.dart';
 import '../providers/cart.dart';
+import '../providers/products.dart';
 
 enum FilterOptions {
   Favorites,
@@ -23,6 +24,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   @override
   void initState() { 
     super.initState();
+    Provider.of<Products>(context,listen: false).fetchAndSetProducts();
     // http.get();
   }
 
